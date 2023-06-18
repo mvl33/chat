@@ -1,0 +1,24 @@
+import requests
+import telebot
+
+# Telegram bot token
+bot_token = "YOUR_BOT_TOKEN"
+
+# Create a Telegram bot instance
+bot = telebot.TeleBot(bot_token)
+
+# Chat ID of the Telegram chat
+chat_id = "YOUR_CHAT_ID"
+
+# URL of the website
+url = "https://www.example.com"
+
+# Send the text from the website to the Telegram chat
+def send_text():
+    # Get the text from the website
+    response = requests.get(url)
+    text = response.text
+    # Send the text to the Telegram chat
+    bot.send_message(chat_id, text)
+
+send_text()
